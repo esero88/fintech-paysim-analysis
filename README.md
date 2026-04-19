@@ -1,48 +1,50 @@
-# PaySim Fraud Analysis
+# 💳 PaySim Fraud Analysis
 
 This project analyzes financial transactions using the PaySim dataset to identify fraud patterns and risk factors.
 
 ---
 
-## Project Overview
+## 📌 Project Overview
 
 - Built an end-to-end data workflow using Python, SQL, and PostgreSQL  
-- Performed exploratory data analysis (EDA) on millions of transactions  
-- Identified key fraud patterns based on transaction type and amount  
+- Performed exploratory data analysis (EDA) on over 6 million transactions  
+- Identified fraud patterns based on transaction type and behavioral characteristics  
 
 ---
 
-## Data Pipeline
+## 🔄 Data Pipeline
 
-1. Data ingestion using Kaggle API  
-2. Data exploration and analysis in Jupyter Notebook  
-3. Data storage and querying in PostgreSQL  
-4. SQL-based fraud analysis  
-
----
-
-## Key Insights
-
-- Fraud is rare and represents a very small portion of all transactions  
-- Fraud is concentrated in **TRANSFER** and **CASH_OUT** transaction types  
-- **TRANSFER** transactions have the highest fraud rate  
-- Fraudulent transactions tend to involve significantly higher amounts  
-- Fraud patterns are linked to specific transaction behaviors, not random events  
+- Data ingestion using Kaggle API  
+- Data exploration in Jupyter Notebook  
+- Data storage and querying in PostgreSQL  
+- SQL-based fraud analysis on full dataset  
 
 ---
 
-## Tech Stack
+## 🔍 Key Insights
 
-- Python (Pandas)
-- PostgreSQL
-- SQL
-- Kaggle API
-- Jupyter Notebook
+- Fraud is rare (~0.13%) and the dataset is highly imbalanced  
+- Fraud occurs only in **TRANSFER** and **CASH_OUT** transaction types  
+- **TRANSFER** has the highest fraud rate (~0.77%), followed by **CASH_OUT (~0.18%)**  
+- Fraud is strongly linked to **transaction type rather than amount alone**  
+- Balance inconsistencies are common across the dataset and require careful interpretation  
+- Fraud patterns are behavior-driven, not random  
 
 ---
 
-## Project Structure
-fintech-paysim-analysis/
+## 🛠️ Tech Stack
+
+- Python (Pandas)  
+- PostgreSQL  
+- SQL  
+- Kaggle API  
+- Jupyter Notebook  
+
+---
+
+## 📁 Project Structure
+
+fintech-paysim-project/
 │
 ├── notebooks/
 │ ├── 01_data_ingestion.ipynb
@@ -58,17 +60,26 @@ fintech-paysim-analysis/
 
 ---
 
-## Notes
+## 📌 Notes
 
 - Dataset is not included due to size  
-- It can be downloaded directly using Kaggle API  
-- Analysis is performed on both sample data (Python) and full dataset (PostgreSQL)
+- It can be downloaded using Kaggle API  
+- Analysis is performed on both sample data (Python) and full dataset (PostgreSQL)  
 
 ---
 
-## What I Learned
+## 📈 What I Learned
 
-- Handling large datasets in PostgreSQL  
+- Handling large-scale datasets in PostgreSQL  
 - Writing analytical SQL queries for fraud detection  
-- Building a modular data analysis workflow  
-- Managing projects with Git and GitHub  
+- Identifying data-driven fraud patterns  
+- Building a structured data analysis workflow  
+- Managing projects using Git and GitHub  
+
+---
+
+## 🚀 Next Steps
+
+- Feature engineering (behavioral patterns, ratios, frequency-based features)  
+- Building fraud detection models (Logistic Regression / XGBoost)  
+- Creating dashboards (Power BI / Looker)  

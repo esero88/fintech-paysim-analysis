@@ -45,7 +45,7 @@ This project analyzes financial transactions using the PaySim dataset to identif
 ## 📁 Project Structure
 
 ```
-fintech-paysim-analysis/
+fintech-paysim-project/
 │
 ├── notebooks/
 │   ├── 01_data_ingestion.ipynb

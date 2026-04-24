@@ -81,8 +81,6 @@ fintech-paysim-analysis/
 
 ## 🚀 Next Steps
 
-- 🚀 Next Steps
-
 - Feature engineering (behavioral patterns, ratios, frequency-based features)
 
 - Building fraud detection models (Logistic Regression / XGBoost)

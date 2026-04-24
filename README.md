@@ -71,6 +71,7 @@ fintech-paysim-analysis/
 ├── notebooks/
 │   ├── 01_data_ingestion.ipynb
 │   └── 02_analysis.ipynb
+│   └── 03_fraud_model.ipynb
 │
 ├── sql/
 │   ├── 01_fraud_distribution.sql

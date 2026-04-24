@@ -81,6 +81,16 @@ fintech-paysim-analysis/
 
 ## 🚀 Next Steps
 
-- Feature engineering (behavioral patterns, ratios, frequency-based features)  
-- Building fraud detection models (Logistic Regression / XGBoost)  
-- Creating dashboards (Power BI / Looker)  
+- 🚀 Next Steps
+
+- Feature engineering (behavioral patterns, ratios, frequency-based features)
+
+- Building fraud detection models (Logistic Regression / XGBoost)
+
+- Implementing anomaly detection techniques to identify unusual transaction behavior
+
+- Developing interactive dashboards (Power BI) to monitor fraud risk and transaction patterns
+
+- Integrating LLM-based insight generation to automatically interpret data trends and highlight key risks
+
+- Creating an AI-powered analytics layer that combines statistical detection with business-friendly explanations

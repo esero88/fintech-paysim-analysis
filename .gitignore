@@ -2,6 +2,7 @@
 data/
 *.csv
 *.zip
+*.pbix
 .ipynb_checkpoints/
 =======
 # Byte-compiled / optimized / DLL files

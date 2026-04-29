@@ -1,112 +1,92 @@
-# 📊 Fraud Detection & Analysis (PaySim Dataset)
+# 🏦 PaySim Data Warehouse Project (Kimball Modeling)
 
 ---
 
 ## 📌 Project Overview
 
-- Built an end-to-end analytics pipeline using Python, SQL, and PostgreSQL
-- Analyzed over 6 million transactions to uncover fraud patterns
-- Developed fraud detection (Logistic Regression) and anomaly detection (Isolation Forest) models
-- Integrated LLM-based insight generation to translate data into business-friendly explanations
-- Designed a Power BI dashboard for monitoring fraud risk and transaction behavior
+- Designed a **transaction-level data warehouse** using the PaySim dataset  
+- Transformed raw financial data into a **Kimball-based dimensional model**  
+- Built scalable data structures to support **P&L analysis, pricing, and profitability insights**  
+- Focused on **data modeling, data architecture, and analytical readiness**  
+
+---
+
+## 🧱 Data Warehouse Architecture
+
+The project follows a layered architecture:
+
+- **Staging Layer** → raw transaction data ingestion and cleaning  
+- **Data Warehouse Layer** → fact and dimension tables  
+- **Data Marts Layer** → business-oriented datasets for reporting  
+
+---
+
+## 📊 Dimensional Modeling (Kimball)
+
+- Fact table → transaction-level data  
+- Dimension tables → customer, date, transaction type  
+- SCD Type 2 → tracking customer history  
+- Mini-dimension → behavioral segmentation  
+- Bridge tables → handling many-to-many relationships  
 
 ---
 
 ## 🔄 Data Pipeline
 
-- Data ingestion via Kaggle API
-- Data exploration and preprocessing in Jupyter Notebook
-- Feature engineering and model preparation
-- Data storage and large-scale querying in PostgreSQL
-- SQL-based fraud analysis on full dataset
-- Export of enriched dataset for visualization and reporting  
+- Data ingestion via Kaggle API  
+- Data storage and large-scale querying in PostgreSQL  
+- SQL-based transformations for staging and data warehouse layers  
+- Structured data preparation for analytics and reporting  
 
 ---
 
-## 🤖 Machine Learning & AI Layer
+## 📊 Business Use Cases
 
-- Logistic Regression → baseline fraud detection model
-- Isolation Forest → anomaly detection to identify unusual transactions
-- Combined approach improves detection coverage beyond labeled fraud cases
-
----
-
-## 🔍 Key Insights
-
-- Fraud is rare (~0.13%) and the dataset is highly imbalanced
-- Fraud occurs primarily in TRANSFER and CASH_OUT transaction types
-- TRANSFER has the highest fraud rate (~0.77%), followed by CASH_OUT (~0.18%)
-- Fraud is more strongly linked to transaction type than amount alone
-- Balance inconsistencies are common and require careful interpretation
-- Fraud patterns are behavior-driven, not random
-
----
-
-## 📊 Dashboard
-- Built an interactive Power BI dashboard to monitor:
-- Fraud rate & anomaly rate
-- Transaction volume & balance changes
-- Risk patterns across transaction types
-- Integrated LLM-generated insights for automated interpretation
-
-📌 Dashboard files are excluded due to size. Preview is available in the repository.
+- Transaction volume and trend analysis  
+- Customer segmentation  
+- Revenue and cost tracking  
+- Profitability analysis  
+- Pricing-related insights  
 
 ---
 
 ## 🛠️ Tech Stack
-- Python (Pandas, Scikit-learn)
-- PostgreSQL
-- SQL
-- Power BI
-- Jupyter Notebook
-- Kaggle API
+
+- PostgreSQL  
+- SQL  
+- Power BI  
+- Python (for ingestion & preprocessing)  
 
 ---
 
 ## 📁 Project Structure
 
-```
-fintech-paysim-analysis/
-│
-├── notebooks/
-│   ├── 01_data_ingestion.ipynb
-│   └── 02_analysis.ipynb
-│   └── 03_fraud_model.ipynb
-│
-├── sql/
-│   ├── 01_fraud_distribution.sql
-│   └── ...
-│
-├── README.md
-└── .gitignore
-```
+fintech-paysim-project/
 
----
-
-## 📌 Notes
-- Dataset is not included due to size
-- Can be downloaded via Kaggle API
-- Analysis performed on both:
-- Sample data (Python / ML)
-- Full dataset (PostgreSQL / SQL)
+├── sql/  
+│   ├── staging/  
+│   ├── dwh/  
+│   ├── marts/  
+│  
+├── docs/  
+├── powerbi/  
+├── assets/  
+└── README.md  
 
 ---
 
 ## 📈 What I Learned
 
-- 📈 What I Learned
-- Handling large-scale datasets efficiently in PostgreSQL
-- Building end-to-end data pipelines for analytics projects
-- Applying machine learning models for fraud detection
-- Using anomaly detection for uncovering hidden patterns
-- Designing interactive dashboards for decision-making
+- Designing scalable **data warehouse architectures (Kimball)**  
+- Implementing **fact and dimension modeling**  
+- Handling large-scale datasets in PostgreSQL  
+- Structuring data for business-oriented analytics  
 
 ---
 
 ## 🚀 Next Steps
 
-- Improve model performance (XGBoost / advanced feature engineering)
-- Implement time-series forecasting (fraud trend prediction)
-- Build real-time fraud detection pipeline
-- Enhance LLM layer with dynamic, filter-based insights
-- Deploy as a scalable AI-powered analytics solution
+- Implement snapshot tables for time-based analysis  
+- Add partitioning for performance optimization  
+- Extend data marts for business reporting  
+- Enhance performance with indexing strategies  

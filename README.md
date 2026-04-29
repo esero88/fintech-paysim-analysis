@@ -8,6 +8,7 @@
 - Transformed raw financial transaction data into a **Kimball-based star schema**  
 - Built a scalable data model to support **analytical queries and business insights**  
 - Developed a **data mart layer for fraud analysis and KPI reporting**  
+- Built an **end-to-end pipeline from raw data to Power BI dashboard**  
 - Focused on **data modeling, ETL design, and performance optimization**
 
 ---
@@ -16,9 +17,9 @@
 
 The project follows a layered architecture:
 
-- **Staging Layer** → raw data extraction and preparation  
-- **Data Warehouse Layer** → fact and dimension modeling  
-- **Data Marts Layer** → business-ready aggregated datasets for analytics  
+- **Data Preparation Layer (Jupyter)** → data cleaning and transformation into analysis-ready format  
+- **Data Warehouse Layer** → fact and dimension modeling (Kimball)  
+- **Data Mart Layer** → business-ready aggregated datasets for analytics  
 
 ---
 
@@ -28,9 +29,9 @@ The project follows a layered architecture:
   - `fact_transactions` → transaction-level grain  
 
 - **Dimension Tables**
-  - `dim_account` → customer & merchant entities  
+  - `dim_customer` → customer & merchant entities  
   - `dim_transaction_type` → transaction categories  
-  - `dim_time` → time attributes (hour, day, week)  
+  - `dim_date` → date and time attributes  
 
 - Implemented **surrogate keys and normalized dimensions**  
 - Optimized model for **analytical performance and scalability**
@@ -39,10 +40,11 @@ The project follows a layered architecture:
 
 ## 🔄 Data Pipeline
 
-- Data ingestion via Kaggle API  
-- Data storage and querying in PostgreSQL  
-- SQL-based transformations for staging and warehouse layers  
-- Efficient ETL using **set-based transformations (JOIN-driven loading)**  
+- Data ingestion via **Kaggle API**  
+- Data preparation in **Jupyter Notebook (cleaning & transformation)**  
+- Data storage and querying in **PostgreSQL**  
+- SQL-based transformations for **warehouse and data mart layers**  
+- ETL designed using **set-based transformations (JOIN-driven loading)**  
 
 ---
 
@@ -50,11 +52,9 @@ The project follows a layered architecture:
 
 A dedicated data mart was designed to transform transaction data into **business-ready insights**.
 
-### 🔹 Key Features
+### 🔹 Key Table
 
-- Synthetic timestamp generation from step-based time data  
-- Aggregation by **time and transaction type**  
-- Fraud-focused KPI calculations  
+- `financial_summary` → P&L-like aggregated KPI table  
 
 ### 🔹 Example KPIs
 
@@ -62,14 +62,26 @@ A dedicated data mart was designed to transform transaction data into **business
 - `total_amount`  
 - `avg_amount`  
 - `fraud_transactions`  
-- `flagged_transactions`  
 - `fraud_rate`  
+- `cash_in / cash_out / transfer breakdown`  
 
 ### 🔹 Purpose
 
 - Enable **fraud trend analysis over time**  
 - Identify **high-risk transaction types**  
-- Support **BI tools (Power BI) with optimized datasets**
+- Support **Power BI dashboard with optimized dataset**
+
+---
+
+## 📊 Power BI Dashboard
+
+- Built an interactive **Fraud Detection & Risk Analysis Dashboard**  
+- Includes:
+  - KPI cards (Total Amount, Fraud Rate, High Value Transactions)  
+  - Transaction type breakdown  
+  - Time-based trend analysis  
+  - Hourly activity heatmaps  
+- Designed to highlight **fraud patterns and behavioral insights**
 
 ---
 
@@ -87,7 +99,7 @@ A dedicated data mart was designed to transform transaction data into **business
 - PostgreSQL  
 - SQL  
 - Python (data ingestion & preprocessing)  
-- Power BI (planned for visualization)  
+- Power BI  
 
 ---
 
@@ -95,25 +107,23 @@ A dedicated data mart was designed to transform transaction data into **business
 
 fintech-paysim-project/
 
-├── legacy-analysis/
-├── sql/
-│ ├── staging/
-│ ├── dwh/
-│ └── 01_create_dwh.sql
-│ ├── marts/
-│ └── 01_fraud_analysis_mart.sql
-│
-├── docs/
-├── powerbi/
-└── README.md
-
+├── legacy-analysis/  
+├── sql/  
+│   ├── staging/  
+│   ├── dwh/  
+│   └── marts/  
+│  
+├── docs/  
+├── powerbi/  
+└── README.md  
 
 ---
 
 ## 📌 Notes
 
 - The main implementation is under the **sql/** directory  
-- Includes fully reproducible scripts for staging, DWH, and data marts  
+- Includes fully reproducible scripts for DWH and data marts  
+- Dashboard is available in the **powerbi/** folder  
 - Designed with **performance, data quality, and scalability** in mind  
 
 ---
@@ -123,14 +133,13 @@ fintech-paysim-project/
 - Designing **star schema data warehouses (Kimball methodology)**  
 - Building **fact & dimension tables from raw event data**  
 - Creating **data marts for business-driven analytics**  
-- Implementing **fraud detection KPIs**  
+- Translating data into **business insights via Power BI**  
 - Optimizing ETL pipelines and query performance  
 
 ---
 
 ## 🚀 Next Steps
 
-- Build **Power BI dashboards for fraud monitoring**  
 - Implement **partitioning for large-scale performance**  
-- Add **advanced dimensional modeling techniques (SCD, snapshot tables)**  
-- Extend analysis with **behavioral fraud detection patterns**
+- Add **SCD Type 2 for historical tracking**  
+- Extend analysis with **advanced fraud detection patterns**

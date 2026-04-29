@@ -29,9 +29,9 @@ The project follows a layered architecture:
   - `fact_transactions` → transaction-level grain  
 
 - **Dimension Tables**
-  - `dim_customer` → customer & merchant entities  
+  - `dim_account` → customer & merchant entities  
   - `dim_transaction_type` → transaction categories  
-  - `dim_date` → date and time attributes  
+  - `dim_time` → date and time attributes    
 
 - Implemented **surrogate keys and normalized dimensions**  
 - Optimized model for **analytical performance and scalability**

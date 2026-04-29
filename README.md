@@ -63,6 +63,7 @@ The project follows a layered architecture:
 
 fintech-paysim-project/
 
+├── legacy-analysis/   # initial exploratory analysis & early outputs  
 ├── sql/  
 │   ├── staging/  
 │   ├── dwh/  
@@ -70,8 +71,14 @@ fintech-paysim-project/
 │  
 ├── docs/  
 ├── powerbi/  
-├── assets/  
 └── README.md  
+
+---
+
+## 📌 Notes
+
+- `legacy-analysis/` contains the initial exploratory analysis, SQL queries, and early outputs  
+- The main focus of the project is the **data warehouse implementation under the sql/ directory**  
 
 ---
 

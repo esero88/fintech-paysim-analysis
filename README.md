@@ -1,112 +1,136 @@
-# 📊 Fraud Detection & Analysis (PaySim Dataset)
+# 🏦 PaySim Data Warehouse Project (Kimball Modeling)
 
 ---
 
 ## 📌 Project Overview
 
-- Built an end-to-end analytics pipeline using Python, SQL, and PostgreSQL
-- Analyzed over 6 million transactions to uncover fraud patterns
-- Developed fraud detection (Logistic Regression) and anomaly detection (Isolation Forest) models
-- Integrated LLM-based insight generation to translate data into business-friendly explanations
-- Designed a Power BI dashboard for monitoring fraud risk and transaction behavior
+- Designed and implemented a **transaction-level data warehouse** using the PaySim dataset  
+- Transformed raw financial transaction data into a **Kimball-based star schema**  
+- Built a scalable data model to support **analytical queries and business insights**  
+- Developed a **data mart layer for fraud analysis and KPI reporting**  
+- Focused on **data modeling, ETL design, and performance optimization**
+
+---
+
+## 🧱 Data Warehouse Architecture
+
+The project follows a layered architecture:
+
+- **Staging Layer** → raw data extraction and preparation  
+- **Data Warehouse Layer** → fact and dimension modeling  
+- **Data Marts Layer** → business-ready aggregated datasets for analytics  
+
+---
+
+## 📊 Dimensional Modeling (Kimball)
+
+- **Fact Table**
+  - `fact_transactions` → transaction-level grain  
+
+- **Dimension Tables**
+  - `dim_account` → customer & merchant entities  
+  - `dim_transaction_type` → transaction categories  
+  - `dim_time` → time attributes (hour, day, week)  
+
+- Implemented **surrogate keys and normalized dimensions**  
+- Optimized model for **analytical performance and scalability**
 
 ---
 
 ## 🔄 Data Pipeline
 
-- Data ingestion via Kaggle API
-- Data exploration and preprocessing in Jupyter Notebook
-- Feature engineering and model preparation
-- Data storage and large-scale querying in PostgreSQL
-- SQL-based fraud analysis on full dataset
-- Export of enriched dataset for visualization and reporting  
+- Data ingestion via Kaggle API  
+- Data storage and querying in PostgreSQL  
+- SQL-based transformations for staging and warehouse layers  
+- Efficient ETL using **set-based transformations (JOIN-driven loading)**  
 
 ---
 
-## 🤖 Machine Learning & AI Layer
+## 📊 Data Mart Layer
 
-- Logistic Regression → baseline fraud detection model
-- Isolation Forest → anomaly detection to identify unusual transactions
-- Combined approach improves detection coverage beyond labeled fraud cases
+A dedicated data mart was designed to transform transaction data into **business-ready insights**.
+
+### 🔹 Key Features
+
+- Synthetic timestamp generation from step-based time data  
+- Aggregation by **time and transaction type**  
+- Fraud-focused KPI calculations  
+
+### 🔹 Example KPIs
+
+- `total_transactions`  
+- `total_amount`  
+- `avg_amount`  
+- `fraud_transactions`  
+- `flagged_transactions`  
+- `fraud_rate`  
+
+### 🔹 Purpose
+
+- Enable **fraud trend analysis over time**  
+- Identify **high-risk transaction types**  
+- Support **BI tools (Power BI) with optimized datasets**
 
 ---
 
-## 🔍 Key Insights
+## ⚡ Performance Optimization
 
-- Fraud is rare (~0.13%) and the dataset is highly imbalanced
-- Fraud occurs primarily in TRANSFER and CASH_OUT transaction types
-- TRANSFER has the highest fraud rate (~0.77%), followed by CASH_OUT (~0.18%)
-- Fraud is more strongly linked to transaction type than amount alone
-- Balance inconsistencies are common and require careful interpretation
-- Fraud patterns are behavior-driven, not random
-
----
-
-## 📊 Dashboard
-- Built an interactive Power BI dashboard to monitor:
-- Fraud rate & anomaly rate
-- Transaction volume & balance changes
-- Risk patterns across transaction types
-- Integrated LLM-generated insights for automated interpretation
-
-📌 Dashboard files are excluded due to size. Preview is available in the repository.
+- Indexes created on frequently filtered columns:
+  - `transaction_date`
+  - `transaction_type`
+- Improved query performance for analytical workloads  
 
 ---
 
 ## 🛠️ Tech Stack
-- Python (Pandas, Scikit-learn)
-- PostgreSQL
-- SQL
-- Power BI
-- Jupyter Notebook
-- Kaggle API
+
+- PostgreSQL  
+- SQL  
+- Python (data ingestion & preprocessing)  
+- Power BI (planned for visualization)  
 
 ---
 
 ## 📁 Project Structure
 
-```
-fintech-paysim-analysis/
-│
-├── notebooks/
-│   ├── 01_data_ingestion.ipynb
-│   └── 02_analysis.ipynb
-│   └── 03_fraud_model.ipynb
-│
+fintech-paysim-project/
+
+├── legacy-analysis/
 ├── sql/
-│   ├── 01_fraud_distribution.sql
-│   └── ...
+│ ├── staging/
+│ ├── dwh/
+│ └── 01_create_dwh.sql
+│ ├── marts/
+│ └── 01_fraud_analysis_mart.sql
 │
-├── README.md
-└── .gitignore
-```
+├── docs/
+├── powerbi/
+└── README.md
+
 
 ---
 
 ## 📌 Notes
-- Dataset is not included due to size
-- Can be downloaded via Kaggle API
-- Analysis performed on both:
-- Sample data (Python / ML)
-- Full dataset (PostgreSQL / SQL)
+
+- The main implementation is under the **sql/** directory  
+- Includes fully reproducible scripts for staging, DWH, and data marts  
+- Designed with **performance, data quality, and scalability** in mind  
 
 ---
 
 ## 📈 What I Learned
 
-- 📈 What I Learned
-- Handling large-scale datasets efficiently in PostgreSQL
-- Building end-to-end data pipelines for analytics projects
-- Applying machine learning models for fraud detection
-- Using anomaly detection for uncovering hidden patterns
-- Designing interactive dashboards for decision-making
+- Designing **star schema data warehouses (Kimball methodology)**  
+- Building **fact & dimension tables from raw event data**  
+- Creating **data marts for business-driven analytics**  
+- Implementing **fraud detection KPIs**  
+- Optimizing ETL pipelines and query performance  
 
 ---
 
 ## 🚀 Next Steps
 
-- Improve model performance (XGBoost / advanced feature engineering)
-- Implement time-series forecasting (fraud trend prediction)
-- Build real-time fraud detection pipeline
-- Enhance LLM layer with dynamic, filter-based insights
-- Deploy as a scalable AI-powered analytics solution
+- Build **Power BI dashboards for fraud monitoring**  
+- Implement **partitioning for large-scale performance**  
+- Add **advanced dimensional modeling techniques (SCD, snapshot tables)**  
+- Extend analysis with **behavioral fraud detection patterns**

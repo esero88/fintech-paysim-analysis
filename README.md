@@ -4,10 +4,10 @@
 
 ## 📌 Project Overview
 
-- Designed a **transaction-level data warehouse** using the PaySim dataset  
-- Transformed raw financial data into a **Kimball-based dimensional model**  
-- Built scalable data structures to support **P&L analysis, pricing, and profitability insights**  
-- Focused on **data modeling, data architecture, and analytical readiness**  
+- Designed and implemented a **transaction-level data warehouse** using the PaySim dataset  
+- Transformed raw financial transaction data into a **Kimball-based star schema**  
+- Built a scalable data model to support **analytical queries and business insights**  
+- Focused on **data modeling, ETL design, and performance optimization**
 
 ---
 
@@ -15,38 +15,42 @@
 
 The project follows a layered architecture:
 
-- **Staging Layer** → raw transaction data ingestion and cleaning  
-- **Data Warehouse Layer** → fact and dimension tables  
-- **Data Marts Layer** → business-oriented datasets for reporting  
+- **Staging Layer** → raw data extraction and preparation  
+- **Data Warehouse Layer** → fact and dimension modeling  
+- **Data Marts Layer** → analytical queries for reporting  
 
 ---
 
 ## 📊 Dimensional Modeling (Kimball)
 
-- Fact table → transaction-level data  
-- Dimension tables → customer, date, transaction type  
-- SCD Type 2 → tracking customer history  
-- Mini-dimension → behavioral segmentation  
-- Bridge tables → handling many-to-many relationships  
+- **Fact Table**
+  - `fact_transactions` → transaction-level grain  
+
+- **Dimension Tables**
+  - `dim_account` → customer & merchant entities  
+  - `dim_transaction_type` → transaction categories  
+  - `dim_time` → time attributes (hour, day, week)  
+
+- Implemented **surrogate keys and normalized dimensions**  
+- Optimized model for **analytical performance and scalability**
 
 ---
 
 ## 🔄 Data Pipeline
 
 - Data ingestion via Kaggle API  
-- Data storage and large-scale querying in PostgreSQL  
-- SQL-based transformations for staging and data warehouse layers  
-- Structured data preparation for analytics and reporting  
+- Data storage and querying in PostgreSQL  
+- SQL-based transformations for staging and warehouse layers  
+- Efficient ETL using **single-pass transformations (JOIN-based loading)**  
 
 ---
 
 ## 📊 Business Use Cases
 
 - Transaction volume and trend analysis  
-- Customer segmentation  
-- Revenue and cost tracking  
-- Profitability analysis  
-- Pricing-related insights  
+- Fraud pattern analysis  
+- Customer vs merchant behavior analysis  
+- Time-based transaction insights (hour/day/week)  
 
 ---
 
@@ -54,8 +58,8 @@ The project follows a layered architecture:
 
 - PostgreSQL  
 - SQL  
-- Power BI  
-- Python (for ingestion & preprocessing)  
+- Python (data ingestion & preprocessing)  
+- Power BI (planned for visualization)  
 
 ---
 
@@ -63,37 +67,38 @@ The project follows a layered architecture:
 
 fintech-paysim-project/
 
-├── legacy-analysis/   # initial exploratory analysis & early outputs  
-├── sql/  
-│   ├── staging/  
-│   ├── dwh/  
-│   ├── marts/  
-│  
-├── docs/  
-├── powerbi/  
-└── README.md  
+├── legacy-analysis/
+├── sql/
+│ ├── staging/
+│ ├── dwh/
+│ ├── marts/
+│
+├── docs/
+├── powerbi/
+└── README.md
 
 ---
 
 ## 📌 Notes
 
-- `legacy-analysis/` contains the initial exploratory analysis, SQL queries, and early outputs  
-- The main focus of the project is the **data warehouse implementation under the sql/ directory**  
+- The main implementation is under the **sql/** directory  
+- Includes a fully reproducible **data warehouse setup script**  
+- Designed with **performance, data quality, and scalability** in mind  
 
 ---
 
 ## 📈 What I Learned
 
-- Designing scalable **data warehouse architectures (Kimball)**  
-- Implementing **fact and dimension modeling**  
-- Handling large-scale datasets in PostgreSQL  
-- Structuring data for business-oriented analytics  
+- Designing **star schema data warehouses (Kimball methodology)**  
+- Building **fact & dimension tables from raw event data**  
+- Optimizing ETL pipelines for performance  
+- Ensuring **data integrity with constraints and validation checks**  
 
 ---
 
 ## 🚀 Next Steps
 
-- Implement snapshot tables for time-based analysis  
-- Add partitioning for performance optimization  
-- Extend data marts for business reporting  
-- Enhance performance with indexing strategies  
+- Implement **data marts for business-specific KPIs**  
+- Add **partitioning for large-scale performance**  
+- Build **Power BI dashboard for visualization**  
+- Extend model with **advanced dimensional techniques (SCD, snapshots)**  
